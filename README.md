@@ -4,7 +4,8 @@
 
 <p align="center">
   <strong>End-to-End Smart Environmental Monitoring & Control Ecosystem</strong><br>
-  Bridging Embedded C++ (ESP32-S3) with a production-ready Flutter mobile application via the Blynk IoT Cloud.
+  Bridging Embedded C++ (ESP32-S3) with a Flutter mobile application via the Blynk IoT Cloud.<br>
+  <em>A 5-member team project (university term project, Feb – May 2026).</em>
 </p>
 
 <p align="center">
@@ -21,7 +22,7 @@
 
 **WeatherLink** is a full-stack IoT solution that creates a seamless feedback loop between the physical environment and the digital user interface. An **ESP32-S3** microcontroller, programmed in **C++** with **PlatformIO**, reads real-time sensor data — temperature, humidity, light, and motion — and drives a set of smart actuators to autonomously respond to environmental conditions.
 
-All sensor telemetry and actuator commands are synchronised through the **Blynk IoT Cloud** using Virtual Pin mapping, which the **Flutter mobile application** consumes via the **Blynk REST API**. The mobile app is architected for production: it implements **Clean Architecture** with a strict separation of Domain, Data, and Presentation layers, and uses **BLoC** for predictable, event-driven state management. The result is a responsive, real-time dashboard that renders at a sustained **60 FPS** under all conditions.
+All sensor telemetry and actuator commands are synchronised through the **Blynk IoT Cloud** using Virtual Pin mapping, which the **Flutter mobile application** consumes via the **Blynk REST API**. The mobile app implements **Clean Architecture** with a strict separation of Domain, Data, and Presentation layers, and uses **BLoC** for predictable, event-driven state management. The result is a responsive, real-time dashboard.
 
 ---
 
@@ -29,7 +30,7 @@ All sensor telemetry and actuator commands are synchronised through the **Blynk 
 
 ### 📱 Mobile Dashboard (Flutter)
 
-The Flutter application is the primary control interface, built to production standards.
+The Flutter application is the primary control interface.
 
 - **Clean Architecture** — Strict separation into `Domain`, `Data`, and `Presentation` layers. The `Domain` layer has zero Flutter dependencies; all business logic is expressed as `UseCases` operating on entities, with failures represented via `dartz` `Either` types.
 - **BLoC State Management** — A single `IotBloc` governs the entire application state. Polling the Blynk API, dispatching control commands, and propagating UI state changes are all handled through a typed stream of `Events` → `States`, with no `setState` anywhere in the widget tree.
@@ -62,7 +63,7 @@ The firmware is the autonomous intelligence layer, operating independently of cl
 
 - **Blynk REST API** — The Flutter app communicates exclusively through the Blynk HTTP REST API (`http` package), keeping the cloud layer as a thin, stateless bridge.
 - **Virtual Pin Mapping** — All sensor values and actuator states are mapped to Blynk Virtual Pins (`Vx`), providing a clean, schema-like interface between the firmware and the mobile app.
-- **Ultra-low Latency Sync** — The `IotBloc` runs a periodic polling loop to pull the latest Virtual Pin states, ensuring the dashboard reflects hardware reality with minimal delay.
+- **Periodic Sync** — The `IotBloc` runs a periodic polling loop to pull the latest Virtual Pin states, so the dashboard follows the hardware closely.
 
 ---
 
@@ -147,7 +148,7 @@ weatherlink/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/dev-amr-elsherif/weatherlink.git
+git clone https://github.com/amrelsherif-eng/weatherlink.git
 cd weatherlink
 ```
 
@@ -187,4 +188,4 @@ To run the **Wokwi simulation** instead, open the `Simulation/Wokwi_Smart_System
 
 ## 📄 License
 
-This project is a private portfolio project. All rights reserved © Amr El-Sherif.
+All rights reserved © the WeatherLink team. Shared publicly as a portfolio project; please ask before reusing the code.
