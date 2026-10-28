@@ -188,4 +188,4 @@ To run the **Wokwi simulation** instead, open the `Simulation/Wokwi_Smart_System
 
 ## 📄 License
 
-All rights reserved © the WeatherLink team. Shared publicly as a portfolio project; please ask before reusing the code.
+Released under the [MIT License](LICENSE) © 2026 the WeatherLink team.
